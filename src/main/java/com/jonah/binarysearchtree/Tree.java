@@ -11,4 +11,21 @@ package com.jonah.binarysearchtree;
  */
 public class Tree {
 	
+	Node head;
+	
+	public Tree(int _value) {
+		this.head = new Node(_value);
+	}
+	public Tree() {
+		this.head = null;
+	}
+	
+	public void addValue(int new_value){
+		if(this.head != null){
+			this.head.addNode(new_value);
+		} else {
+			this.head = new Node(new_value);
+		}
+	}
+	
 }
