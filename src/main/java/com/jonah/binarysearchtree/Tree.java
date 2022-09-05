@@ -11,7 +11,7 @@ package com.jonah.binarysearchtree;
  */
 public class Tree {
 	
-	Node head;
+	private Node head;
 	
 	public Tree(int _value) {
 		this.head = new Node(_value);

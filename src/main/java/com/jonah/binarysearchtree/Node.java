@@ -11,9 +11,9 @@ package com.jonah.binarysearchtree;
  */
 public class Node {
 	
-	int value;
-	Node left = null;
-	Node right = null;
+	private int value;
+	private Node left = null;
+	private Node right = null;
 	
 	public Node(int _value) {
 		this.value = _value;
