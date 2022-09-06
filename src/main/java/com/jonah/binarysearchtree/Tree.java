@@ -16,6 +16,9 @@ public class Tree {
 	public Tree(int _value) {
 		this.head = new Node(_value);
 	}
+	public Tree(Node _value) {
+		this.head = _value;
+	}
 	public Tree() {
 		this.head = null;
 	}
@@ -27,5 +30,21 @@ public class Tree {
 			this.head = new Node(new_value);
 		}
 	}
-	
+	public void addValue(Node new_value){
+		if(this.head != null){
+			this.head.addNode(new_value);
+		} else {
+			this.head = new_value;
+		}
+	}
+	public void delete(Node value) {
+		if(value.getParent() != null) {
+			value.getParent().setLChild(value.getLChild());
+		} else {
+			this.head = value.getLChild();
+		}
+		if (value.getLChild() != null) {
+			value.getLChild().setParent(value.getParent());
+		}
+	}
 }
