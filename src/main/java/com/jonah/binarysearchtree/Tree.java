@@ -48,7 +48,10 @@ public class Tree {
 		}
 	}
 	public Integer findMinimum(){
-		if(head != null) {return head.findSmallestChild();}
+		if(head != null) {return head.findSmallestChildValue();}
 		else return null;
 	}
+	
+	public Node getRoot() {return this.head;}
+	
 }

@@ -53,9 +53,33 @@ public class Node {
 			}
 		}
 	}
-	public int findSmallestChild(){
-		if(this.left != null) return this.left.findSmallestChild();
+	
+	public Node findSuccessor() {
+		if(this.right != null) {
+			if(this.right.left == null) return this.right;
+			else {
+				return this.right.findSmallestChild();
+			}
+		}
+		return this;
+	}
+	public int findSuccessorValue() {
+		if(this.right != null) {
+			if(this.right.left == null) return this.right.value;
+			else {
+				return this.right.findSmallestChildValue();
+			}
+		}
+		return this.value;
+	}
+	
+	public int findSmallestChildValue(){
+		if(this.left != null) return this.left.findSmallestChildValue();
 		else return this.value;
+	}
+	public Node findSmallestChild(){
+		if(this.left != null) return this.left.findSmallestChild();
+		else return this;
 	}
 	
 	public int getValue()   {return this.value;}
