@@ -47,4 +47,8 @@ public class Tree {
 			value.getLChild().setParent(value.getParent());
 		}
 	}
+	public Integer findMinimum(){
+		if(head != null) {return head.findSmallestChild();}
+		else return null;
+	}
 }

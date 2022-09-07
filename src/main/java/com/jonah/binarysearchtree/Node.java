@@ -53,6 +53,10 @@ public class Node {
 			}
 		}
 	}
+	public int findSmallestChild(){
+		if(this.left != null) return this.left.findSmallestChild();
+		else return this.value;
+	}
 	
 	public int getValue()   {return this.value;}
 	public Node getRChild() {return this.right;}
