@@ -52,6 +52,12 @@ public class Tree {
 		else return null;
 	}
 	
+	public void printWalk() {this.head.printWalk();}
+	public String toString() {if(this.head != null) return this.head.toString(); else return null;}
+	
 	public Node getRoot() {return this.head;}
+	public int getRootValue() {return this.head.getValue();}
+	
+	
 	
 }

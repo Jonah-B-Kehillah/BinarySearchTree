@@ -54,7 +54,7 @@ public class Node {
 		}
 	}
 	
-	public Node findSuccessor() {
+	public Node findSuccessor() { // i.e. second smallest
 		if(this.right != null) {
 			if(this.right.left == null) return this.right;
 			else {
@@ -80,6 +80,22 @@ public class Node {
 	public Node findSmallestChild(){
 		if(this.left != null) return this.left.findSmallestChild();
 		else return this;
+	}
+	
+	public void printWalk() {
+		if(this.left != null) this.left.printWalk();
+		System.out.println(this.value + " ");
+		if(this.right != null) this.right.printWalk();
+	}
+	public String toString() {
+		
+		String output = "";
+		
+		if(this.left != null) output += this.left.toString();
+		output += this.value + " ";
+		if(this.right != null) output += this.right.toString();
+		
+		return output.strip();
 	}
 	
 	public int getValue()   {return this.value;}
