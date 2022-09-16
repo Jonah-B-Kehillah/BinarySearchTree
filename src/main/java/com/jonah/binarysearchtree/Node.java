@@ -98,6 +98,23 @@ public class Node {
 		return output.strip();
 	}
 	
+	public int depth() {
+		if(left == null && right == null) return 0;
+		else if (left  == null) {
+			return right.depth() + 1;
+		}
+		else if (right == null) {
+			return left.depth()  + 1;
+		}
+		else {
+			int l =  left.depth();
+			int r = right.depth();
+			
+			return Math.max(l, r) + 1;
+			
+		}
+	}
+	
 	public int getValue()   {return this.value;}
 	public Node getRChild() {return this.right;}
 	public Node getLChild() {return this.left;}

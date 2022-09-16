@@ -37,19 +37,51 @@ public class Tree {
 			this.head = new_value;
 		}
 	}
-	public void delete(Node value) {
-		if(value.getParent() != null) {
-			value.getParent().setLChild(value.getLChild());
+	
+	// code taken from Introduction to Algorithms, Third Edition
+	private void transplant(Node u, Node v) {
+		if(u.getParent()==null) {
+			head = v;
+		} else if (u == u.getParent().getLChild()) {
+			u.getParent().setLChild(v);
 		} else {
-			this.head = value.getLChild();
+			u.getParent().setRChild(v);
 		}
-		if (value.getLChild() != null) {
-			value.getLChild().setParent(value.getParent());
+		if (v != null) {
+			v.setParent(u.getParent());
 		}
 	}
-	public Integer findMinimum(){
+	public void delete(Node z) {
+		if(head == null) return;
+		if (z.getLChild() == null) {
+			transplant(z, z.getRChild());
+		} else if (z.getRChild() == null) {
+			transplant(z, z.getLChild());
+		} else {
+			Node y = findMinimum();
+			if(y.getParent() != z) {
+				transplant(y, y.getRChild());
+				y.setRChild(z.getLChild());
+				y.getRChild().setParent(y);
+			}
+			transplant(z, y);
+			y.setLChild(z.getLChild());
+			y.getLChild().setParent(y);
+		}
+	}
+	// end of code taken from Introduction to Algorithms, Third Edition
+	
+	public Node findMinimum(){
+		if(head != null) {return head.findSmallestChild();}
+		else return null;
+	}
+	public Integer findMinimumValue(){
 		if(head != null) {return head.findSmallestChildValue();}
 		else return null;
+	}
+	
+	public int depth() {
+		return head.depth();
 	}
 	
 	public void printWalk() {this.head.printWalk();}
