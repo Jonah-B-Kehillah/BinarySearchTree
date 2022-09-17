@@ -6,7 +6,6 @@ text
 - The file contains tests for the `Tree` and `Node` classes
 ##### Tree.java
 - The file contains the `Tree` class. This is the Binary Search Tree
-  - 
 ##### Node.java
 - The file contains the `Node` class
 
