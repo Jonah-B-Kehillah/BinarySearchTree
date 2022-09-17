@@ -63,15 +63,16 @@ public class Tree {
 		} else if (z.getRChild() == null) {
 			transplant(z, z.getLChild());
 		} else {
-			Node y = findMinimum();
+			Node y = z.getRChild().findSmallestChild();
 			if(y.getParent() != z) {
 				transplant(y, y.getRChild());
-				y.setRChild(z.getLChild());
+				y.setRChild(z.getRChild());
 				y.getRChild().setParent(y);
 			}
 			transplant(z, y);
 			y.setLChild(z.getLChild());
 			y.getLChild().setParent(y);
+			
 		}
 	}
 	// end of code taken from Introduction to Algorithms, Third Edition

@@ -26,12 +26,14 @@ public class Node {
 				this.right.addNode(new_value);
 			} else {
 				this.right = new Node(new_value);
+				this.right.setParent(this);
 			}
 		} else {
 			if(this.left != null) {
 				this.left.addNode(new_value);
 			} else {
 				this.left = new Node(new_value);
+				this.left.setParent(this);
 			}
 		}
 	}
@@ -99,11 +101,11 @@ public class Node {
 	}
 	public String toString() {
 		
-		String output = "";
+		String output = " ";
 		
-		if(this.left != null) output += this.left.toString();
+		if(this.left != null) output += this.left.toString() + " ";
 		output += this.value + " ";
-		if(this.right != null) output += this.right.toString();
+		if(this.right != null) output += this.right.toString() + " ";
 		
 		return output.strip();
 	}
