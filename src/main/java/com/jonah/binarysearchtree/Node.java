@@ -54,6 +54,16 @@ public class Node {
 		}
 	}
 	
+	public Node search(int _value) {
+		if(value == _value) return this;
+		else if(_value > this.value && this.right != null) {
+			return this.right.search(_value);
+		} else if(_value < this.value && this.left != null) {
+			return this.left.search(_value);
+		}
+		return null;
+	}
+	
 	public Node findSuccessor() { // i.e. second smallest
 		if(this.right != null) {
 			if(this.right.left == null) return this.right;

@@ -38,6 +38,11 @@ public class Tree {
 		}
 	}
 	
+	public Node search(int value) {
+		if(head == null) return head;
+		return head.search(value);
+	}
+	
 	// code taken from Introduction to Algorithms, Third Edition
 	private void transplant(Node u, Node v) {
 		if(u.getParent()==null) {
