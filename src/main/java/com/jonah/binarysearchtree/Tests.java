@@ -70,6 +70,14 @@ public class Tests {
 		test(testDelete3());
 		test(testDelete4());
 		
+		// testing findSuccessor
+		test(testSuccessor1());
+		test(testSuccessor2());
+		
+		// testing max and min
+		test(testMin());
+		test(testMax());
+		
 		System.out.println(String.format("Tests passed: %d, Tests failed: %d", passed, failed));
 		
 	}
@@ -235,5 +243,41 @@ public class Tests {
 		tree.addValue(12);
 		tree.delete(tree.search(6));
 		return tree.toString().equals("1 3 4 5 7 8 9 12") && tree.getRoot().getValue() == 7;
+	}
+	
+	private static boolean testSuccessor1() {
+		Tree tree = new Tree();
+		Node n1 = new Node(1);
+		Node n2 = new Node(2);
+		Node n3 = new Node(3);
+		tree.addValue(n2);
+		tree.addValue(n1);
+		tree.addValue(n3);
+		Node check = n1.findSuccessor();
+		return check == n2;
+	}
+	private static boolean testSuccessor2() {
+		Tree tree = new Tree();
+		Node n1 = new Node(1);
+		Node n2 = new Node(2);
+		Node n3 = new Node(3);
+		tree.addValue(n2);
+		tree.addValue(n1);
+		tree.addValue(n3);
+		Node check = n2.findSuccessor();
+		return check == n3;
+	}
+	
+	private static boolean testMin() {
+		Tree tree = new Tree(2);
+		tree.addValue(1);
+		tree.addValue(3);
+		return tree.findMinimumValue() == 1;
+	}
+	private static boolean testMax() {
+		Tree tree = new Tree(2);
+		tree.addValue(1);
+		tree.addValue(3);
+		return tree.findMaximumValue() == 3;
 	}
 }

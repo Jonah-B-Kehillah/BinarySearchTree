@@ -66,23 +66,24 @@ public class Node {
 		return null;
 	}
 	
-	public Node findSuccessor() { // i.e. second smallest
-		if(this.right != null) {
-			if(this.right.left == null) return this.right;
-			else {
-				return this.right.findSmallestChild();
-			}
+	/**
+	 * Finds the successor to the node this is called from
+	 * @return The node that follows this node when sorted
+	 */
+	public Node findSuccessor() { // code taken from Introduction to Algorithms, Third Edition
+		Node x = this;
+		if (this.right != null) {
+			return this.right.findSmallestChild();
 		}
-		return this;
+		Node y = this.parent;
+		while (y != null && x == y.getRChild()) {
+			x = y;
+			y = y.getParent();
+		}
+		return y;
 	}
 	public int findSuccessorValue() {
-		if(this.right != null) {
-			if(this.right.left == null) return this.right.value;
-			else {
-				return this.right.findSmallestChildValue();
-			}
-		}
-		return this.value;
+		return this.findSuccessor().getValue();
 	}
 	
 	public int findSmallestChildValue(){
@@ -91,6 +92,14 @@ public class Node {
 	}
 	public Node findSmallestChild(){
 		if(this.left != null) return this.left.findSmallestChild();
+		else return this;
+	}
+	public int findGreatestChildValue(){
+		if(this.right != null) return this.right.findGreatestChildValue();
+		else return this.value;
+	}
+	public Node findGreatestChild(){
+		if(this.right != null) return this.right.findGreatestChild();
 		else return this;
 	}
 	
@@ -110,6 +119,10 @@ public class Node {
 		return output.strip();
 	}
 	
+	/**
+	 * Finds the height of this node
+	 * @return Returns the 'height' of this node. When depth == 1, this node has no children, when depth == 2, this node's direct children have no children, etc. 
+	 */
 	public int depth() {
 		if(left == null && right == null) return 1;
 		else if (left  == null) {

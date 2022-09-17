@@ -44,6 +44,11 @@ public class Tree {
 	}
 	
 	// code taken from Introduction to Algorithms, Third Edition
+	/**
+	 * Transplants one subtree into another subtree
+	 * @param u This is the node that is moved
+	 * @param v Node u is transplanted into this node
+	 */
 	private void transplant(Node u, Node v) {
 		if(u.getParent()==null) {
 			head = v;
@@ -85,7 +90,18 @@ public class Tree {
 		if(head != null) {return head.findSmallestChildValue();}
 		else return null;
 	}
+	public Node findMaximum() throws RuntimeException{
+		if(head != null) {return head.findGreatestChild();}
+		else throw new RuntimeException("no values exist in the tree");
+	}
+	public Integer findMaximumValue(){
+		if(head != null) {return head.findGreatestChildValue();}
+		else return null;
+	}
 	
+	/**
+	 * Implements Node.depth() for the root of this tree.
+	 */
 	public int depth() {
 		if(this.head == null) return 0;
 		return head.depth();

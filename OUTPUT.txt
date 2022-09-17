@@ -18,4 +18,8 @@ Test #17 passed
 Test #18 passed
 Test #19 passed
 Test #20 passed
-Tests passed: 20, Tests failed: 0
+Test #21 passed
+Test #22 passed
+Test #23 passed
+Test #24 passed
+Tests passed: 24, Tests failed: 0
