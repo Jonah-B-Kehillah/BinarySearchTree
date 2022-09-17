@@ -87,6 +87,7 @@ public class Tree {
 	}
 	
 	public int depth() {
+		if(this.head == null) return 0;
 		return head.depth();
 	}
 	

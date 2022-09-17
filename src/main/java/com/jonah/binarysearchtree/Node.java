@@ -111,7 +111,7 @@ public class Node {
 	}
 	
 	public int depth() {
-		if(left == null && right == null) return 0;
+		if(left == null && right == null) return 1;
 		else if (left  == null) {
 			return right.depth() + 1;
 		}
