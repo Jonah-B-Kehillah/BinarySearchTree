@@ -90,8 +90,8 @@ public class Tree {
 		return head.depth();
 	}
 	
-	public void printWalk() {this.head.printWalk();}
-	public String toString() {if(this.head != null) return this.head.toString(); else return null;}
+	public void printWalk()  {if(this.head != null)        this.head.printWalk(); else System.out.println("");}
+	public String toString() {if(this.head != null) return this.head.toString() ; else return "";}
 	
 	public Node getRoot() {return this.head;}
 	public int getRootValue() {return this.head.getValue();}
