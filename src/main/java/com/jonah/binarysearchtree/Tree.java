@@ -77,9 +77,9 @@ public class Tree {
 	}
 	// end of code taken from Introduction to Algorithms, Third Edition
 	
-	public Node findMinimum(){
+	public Node findMinimum() throws RuntimeException{
 		if(head != null) {return head.findSmallestChild();}
-		else return null;
+		else throw new RuntimeException("no values exist in the tree");
 	}
 	public Integer findMinimumValue(){
 		if(head != null) {return head.findSmallestChildValue();}
